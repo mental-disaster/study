@@ -27,7 +27,7 @@ def solution(n, edge):
         while(len(visit)<n):
             hierarchy.append(list(set(way).difference(visit)))
             q = copy.deepcopy(hierarchy[-1])
-            run = []
+            way = []
             while(q):
                 node = q.pop(0)
                 if(node not in visit):
