@@ -15,6 +15,8 @@ def BFS(graph,start):
                 q.append(new[new.index(node)^1])
     return visit
 
+
+
 import copy
 
 def solution(n, edge):
@@ -36,5 +38,23 @@ def solution(n, edge):
                     for new in link:
                         way.append(new[new.index(node)^1])
         return hierarchy
-    
     return len(BFS(edge,1)[-1])
+
+
+
+def solution(n, edge):
+    visit = []
+    way = [1]
+    q = []
+
+    while(len(visit)<n):
+        last = way
+        q = way[:]
+        way = []
+        while(q):
+            node = q.pop()
+            if(node not in visit):
+                visit.append(node)
+                way += [i[i.index(node)^1] for i in edge if(node in i)]
+        way = list(set(way).difference(visit))
+    return len(last)
